@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Completed</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of myobjects">
+            <td>{{x.title}}</td>
+            <td>{{x.description}}</td>
+            <td>{{x.completed}}</td>
+            <td>
+                <button (click)="deleteObject(x)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
