@@ -9,28 +9,39 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   myUrl = ''
-  myobjects:any = [{title:"", description:"", completed:false}];
+  myobjects: any = [{ title: "", description: "", completed: false }];
+  show: any;
   constructor(
-    private http:HttpService,
-    private router:Router,
-    private route:ActivatedRoute,
+    private http: HttpService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.getAllObjects()
   }
 
-  getAllObjects(){
+  getAllObjects() {
     let observable = this.http.findAll()
     observable.subscribe(data => {
       this.myobjects = data;
     })
   }
-  deleteObject(x){
+  deleteObject(x) {
     let observable = this.http.delete(x);
     observable.subscribe(data => {
       console.log(data)
       this.getAllObjects()
+    })
+  }
+
+  showObject(id: string) {
+    console.log('click is working');
+    let observable = this.http.findOne(id);
+    observable.subscribe(data => {
+      this.show = data;
+      console.log("got details", data)
+      
     })
   }
 }
