@@ -8,7 +8,7 @@ module.exports = {
             .catch(err => res.json(err));
     },
     find_by_id: (req, res) => {
-        PrimaryObject.find({ _id: req.params.id })
+        PrimaryObject.findById({ _id: req.params.id })
             .then(data => res.json(data))
             .catch(err => res.json(err));
     },
