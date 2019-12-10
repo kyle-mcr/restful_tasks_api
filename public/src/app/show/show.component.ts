@@ -18,7 +18,7 @@ export class ShowComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.getData();
-    this.myobj = { title: '', description: '', completed: false };
+    this.myobj = { name: '', type: '', watered: false };
   }
   getTask(id) {
     let observable2 = this.http.findOne(id);

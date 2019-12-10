@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent implements OnInit {
-  myobj = {title:'', description:'', completed:false}
+  myobj = {name:'', type:'', watered:false}
 
   constructor(
     private http:HttpService,
